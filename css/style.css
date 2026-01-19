@@ -10,6 +10,12 @@ body {
   line-height: 1.6;
 }
 
+.container1 {
+  max-width: 1000px;
+  margin: auto;
+  padding: 0 20px;
+}
+
 .container {
   max-width: 1200px;
   margin: auto;
@@ -409,9 +415,16 @@ body {
    HEADER
 ========================= */
 
+
 .site-header {
+  /* position: fixed;
+  top: 0;
+  left: 0; */
   width: 100%;
+  /* z-index: 9999;
+  background: #fff; */
 }
+
 
 /* TOP BAR */
 .header-top {
@@ -924,6 +937,9 @@ body {
 
 /* ưu đãi */
 .promo-section {
+  max-width: 1200px;
+  margin: auto;
+  height: auto;
   background: url("../image/11.png");
   background-repeat: no-repeat;
   background-position: center;
@@ -932,7 +948,7 @@ body {
 
 .promo-box {
   max-width: none;
-  width: 100%;
+  width: 75%;
   margin: 0 auto;
   padding: 50px 30px 60px;
   border-radius: 28px;
@@ -955,9 +971,9 @@ body {
 }
 
 .promo-sub {
-    margin-top: 300px;
-  font-size: 45px;
-  font-weight: bold;
+   margin-top: 15rem;
+    font-size: 34px;
+    font-weight: bold;
 }
 
 /* GRID */
@@ -979,7 +995,7 @@ body {
 
 /* TOTAL */
 .promo-total span {
-  font-size: 65px;
+  font-size: 40px;
   font-weight: 700;
   display: block;
   margin-bottom: 10px;
