@@ -1109,6 +1109,53 @@ body {
     width: 100%;
   }
 }
+.contact-submit {
+    appearance: none;
+    border: none;
+    cursor: pointer;
+
+    padding: 8px 22px;
+    font-size: 16px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #000;
+
+    /* Gradient cam */
+    background: linear-gradient(
+        90deg,
+        #d8890f 0%,
+        #f4b13d 50%,
+        #d8890f 100%
+    );
+
+    /* Pill shape */
+    border-radius: 999px;
+
+    transition: all 0.25s ease;
+}
+
+/* Hover */
+.contact-submit:hover {
+    transform: translateY(-2px);
+    
+}
+
+/* Active */
+.contact-submit:active {
+    transform: translateY(0);
+   
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+    .contact-submit {
+        font-size: 18px;
+        padding: 12px 30px;
+    }
+}
+
+
 
 /* khách hàng nói gì */
 

@@ -54,8 +54,36 @@
         });
     });
 </script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const form = document.getElementById("contactForm");
+    if (!form) return;
 
+    form.addEventListener("submit", function (e) {
+        e.preventDefault();
 
+        const data = Object.fromEntries(new FormData(form).entries());
+
+        fetch("https://script.google.com/macros/s/AKfycbxaKR1sJjDJhps-_51q6e77osLl8Qha8UeJz9ABu8snzK29g1OvudGVsoTjf_BVouCB/exec", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(data)
+        })
+        .then(res => res.json())
+        .then(res => {
+            if (res.status === "success") {
+                alert("Gửi thông tin thành công!");
+                form.reset();
+            }
+        })
+        .catch(() => {
+            alert("Có lỗi xảy ra, vui lòng thử lại!");
+        });
+    });
+});
+</script>
 
 
 
@@ -438,84 +466,92 @@
 
     <!-- ƯU ĐÃI -->
     <section class="promo-section" id="uu-dai">
-            <div class="promo-box">
-                <p class="promo-sub">
-                    DÀNH RIÊNG CHO QUÝ KHÁCH HÀNG<br>
-                    CỦA WAYTECH
-                </p>
+        <div class="promo-box">
+            <p class="promo-sub">
+                DÀNH RIÊNG CHO QUÝ KHÁCH HÀNG<br>
+                CỦA WAYTECH
+            </p>
 
-                <div class="promo-grid">
-                    <div class="promo-item"><img src="./image/Asset 26.png" width="80%" alt=""></div>
-                    <div class="promo-item">
-                        <img src="./image/Asset 27.png" width="80%" alt="">
-                    </div>
-                    <div class="promo-item">
-                        <img src="./image/Asset 28.png" width="80%" alt="">
-                    </div>
-                    <div class="promo-item">
-                        <img src="./image/Asset 29.png" width="80%" alt="">
-                    </div>
+            <div class="promo-grid">
+                <div class="promo-item"><img src="./image/Asset 26.png" width="80%" alt=""></div>
+                <div class="promo-item">
+                    <img src="./image/Asset 27.png" width="80%" alt="">
                 </div>
-
-                <div class="promo-item promo-center">
-                    <img src="./image/Asset 30.png" width="80%" alt="">
+                <div class="promo-item">
+                    <img src="./image/Asset 28.png" width="80%" alt="">
                 </div>
-
-                <div class="promo-total">
-                    <span>TỔNG GIÁ TRỊ LÊN TỚI</span>
-                    <div class="promo-price">
-                        <img src="./image/Asset 25.png" width="70%" alt="">
-                    </div>
+                <div class="promo-item">
+                    <img src="./image/Asset 29.png" width="80%" alt="">
                 </div>
-
             </div>
+
+            <div class="promo-item promo-center">
+                <img src="./image/Asset 30.png" width="80%" alt="">
+            </div>
+
+            <div class="promo-total">
+                <span>TỔNG GIÁ TRỊ LÊN TỚI</span>
+                <div class="promo-price">
+                    <img src="./image/Asset 25.png" width="70%" alt="">
+                </div>
+            </div>
+
+        </div>
     </section>
 
 
     <!-- FORM -->
     <section class="contact-section" id="lien-he">
         <h2>NHẬN ƯU ĐÃI NGAY!</h2>
-        <div class="contact-box">
-            <div class="contact-form">
 
+        <div class="contact-box">
+
+            <!-- FORM -->
+            <form class="contact-form" id="contactForm">
 
                 <div class="form-group">
                     <span class="icon">
                         <img src="./image/Asset 31.png" width="100%" alt="">
                     </span>
-                    <input type="text" placeholder="Họ và tên:" />
+                    <input type="text" name="name" placeholder="Họ và tên:" required />
                 </div>
 
                 <div class="form-group">
                     <span class="icon">
                         <img src="./image/Asset 32.png" width="100%" alt="">
                     </span>
-                    <input type="text" placeholder="Số điện thoại:" />
+                    <input type="text" name="phone" placeholder="Số điện thoại:" required />
                 </div>
 
                 <div class="form-group">
                     <span class="icon">
                         <img src="./image/Asset 33.png" width="100%" alt="">
                     </span>
-                    <input type="text" placeholder="Căn hộ / Diện tích:" />
+                    <input type="text" name="dt" placeholder="Căn hộ / Diện tích:" />
                 </div>
 
                 <div class="form-group">
                     <span class="icon">
                         <img src="./image/Asset 34.png" width="100%" alt="">
                     </span>
-                    <input type="text" placeholder="Nhu cầu: (Thiết kế / Thi công / Làm trọn gói)" />
+                    <input type="text" name="nc" placeholder="Nhu cầu: (Thiết kế / Thi công / Trọn gói)" />
                 </div>
 
-                <img src="./image/Asset 20.png" width="50%" alt="">
-            </div>
+                <!-- NÚT GỬI -->
+                <button type="submit" class="contact-submit">
+                    ĐĂNG KÝ NGAY!
+                </button>
 
+            </form>
+
+            <!-- ẢNH -->
             <div class="contact-image">
                 <img src="./image/12.png" width="100%" alt="">
             </div>
 
         </div>
     </section>
+
 
     <section class="review-section">
         <div class="container">
